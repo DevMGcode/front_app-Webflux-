@@ -1,0 +1,30 @@
+
+
+.background {
+  background-image: url('../../assets/Fondo3.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh; /* O la altura que prefieras */
+  width: 100%; /* O el ancho que prefieras */
+  animation: expandContract 50s infinite;
+}
+
+@keyframes expandContract {
+  0% {
+    background-size: 100% 100%;
+  }
+  50% {
+    background-size: 120% 120%;
+  }
+  100% {
+    background-size: 100% 100%;
+  }
+}
+
+
+.container {
+  width: 100%;
+  max-width: 500px; /* Limita el ancho máximo del formulario */
+  background-color: rgba(255, 255, 255, 0.7);
+}

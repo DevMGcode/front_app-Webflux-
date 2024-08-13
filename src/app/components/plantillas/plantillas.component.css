@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  height: 100vh;
+  width: 100%;
+  background-image: url('../../assets/Fondo2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: zoom 20s infinite alternate;
+}
+
+@keyframes zoom {
+  from {
+    background-size: 100% 100%;
+  }
+  to {
+    background-size: 120% 120%;
+  }
+}

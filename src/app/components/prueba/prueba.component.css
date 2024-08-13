@@ -1,0 +1,22 @@
+/* src/app/your-component/your-component.component.css */
+.background {
+  background-image: url('../../assets/Fondo1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh; /* O la altura que prefieras */
+  width: 100%; /* O el ancho que prefieras */
+  animation: expandContract 10s infinite;
+}
+
+@keyframes expandContract {
+  0% {
+    background-size: 100% 100%;
+  }
+  50% {
+    background-size: 120% 120%;
+  }
+  100% {
+    background-size: 100% 100%;
+  }
+}

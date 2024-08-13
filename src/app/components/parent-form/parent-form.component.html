@@ -1,0 +1,43 @@
+<div class="background flex items-center justify-center min-h-screen bg-gray-100">
+  <div class="container p-6 max-w-2xl bg-white rounded-lg shadow-md">
+      <!-- Formulario con enlace al objeto FormGroup del componente -->
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <h1 class="text-2xl font-semibold text-gray-800 mb-4">Formulario Padre</h1>
+      <!-- Campo de entrada para el nombre del padre -->
+      <div class="mb-4">
+        <label for="parentName" class="block text-sm font-medium text-gray-700 mb-1">Nombre del Padre:</label>
+        <input
+          id="parentName"
+          formControlName="parentName"
+          class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          placeholder="Ingrese el nombre del padre"
+        />
+        <!-- Mensaje de error si el campo es inválido y ha sido tocado -->
+        <div *ngIf="form.get('parentName')?.invalid && form.get('parentName')?.touched" class="text-red-600 text-sm mt-1">
+          El nombre es obligatorio.
+        </div>
+      </div>
+      <!-- Inclusión del componente hijo para la profesión -->
+      <div class="mb-6">
+        <app-child-form
+          [professionControl]="childProfessionControl"
+          (professionChange)="onProfessionChange($event)"
+        ></app-child-form>
+      </div>
+
+      <button
+        type="submit"
+        [disabled]="form.invalid"
+        class="w-full py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"
+      >
+        Enviar
+      </button>
+    </form>
+
+      <!-- Muestra los datos enviados después del envío del formulario -->
+    <div *ngIf="submittedData" class="mt-6 p-6 bg-gray-50 border border-gray-300 rounded-lg shadow-md">
+      <h2 class="text-lg font-semibold text-gray-800 mb-2">Datos Enviados:</h2>
+      <pre class="bg-gray-100 p-4 rounded-md text-sm text-gray-800">{{ submittedData | json }}</pre>
+    </div>
+  </div>
+</div>

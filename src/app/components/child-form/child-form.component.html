@@ -1,0 +1,14 @@
+<p>child-form works!</p>
+<div>
+  <label for="childProfession" class="block text-sm font-medium text-gray-700">Profesión:</label>
+  <input
+    id="childProfession"
+    [formControl]="professionControl"
+    (input)="onProfessionChange($event)"
+    class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm"
+    placeholder="Ingrese la profesión"
+  />
+  <div *ngIf="professionControl.invalid && professionControl.touched" class="text-red-600 text-sm">
+    La profesión es obligatoria.
+  </div>
+</div>
